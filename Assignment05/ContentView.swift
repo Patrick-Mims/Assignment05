@@ -1,16 +1,40 @@
-//
-//  ContentView.swift
-//  Assignment05
-//
-//  Created by JPL-ST-SPRING2022 on 10/12/22.
-//
+/*
+    Patrick Mims
+    Assignment 5
+    You are awesome app with if-else
+    Date: 10-12-22
+ */
 
 import SwiftUI
 
 struct ContentView: View {
+    @State private var messageString = "You are Amazing"
+    @State private var isPlaying: Bool = false
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        
+        VStack {
+            NavigationView {
+                Text(messageString)
+                    .font(.largeTitle)
+                    .fontWeight(.heavy)
+                    .foregroundColor(.red)
+                    .padding()
+                    .navigationBarTitle("San Francisco State", displayMode: .inline)
+                
+            }
+            Button("Show Message") {
+                let message1 = "You are Awesome"
+                let message2 = "You are fabulous"
+            
+                if messageString == message1 {
+                    messageString = message2
+                } else {
+                    messageString = message1
+                }
+            }
+            .buttonStyle(.borderedProminent)
+        }
     }
 }
 
